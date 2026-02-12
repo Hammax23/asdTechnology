@@ -1,0 +1,130 @@
+import type { Metadata } from "next";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import PageHeader from "@/components/PageHeader";
+import ContactForm from "@/components/ContactForm";
+
+export const metadata: Metadata = {
+  title: "Contact Us | ASD Technology",
+  description:
+    "Get in touch with ASD Technology for technology solutions and chauffeur services. We respond within 2 hours.",
+};
+
+const contactInfo = [
+  {
+    icon: Phone,
+    title: "Call Us",
+    primary: "+92 300 1234567",
+    secondary: "+92 51 1234567",
+    description: "Available 24/7 for bookings and support.",
+  },
+  {
+    icon: Mail,
+    title: "Email Us",
+    primary: "info@asdtechnology.com",
+    secondary: "support@asdtechnology.com",
+    description: "We respond within 2 hours during business hours.",
+  },
+  {
+    icon: MapPin,
+    title: "Visit Us",
+    primary: "Blue Area, Jinnah Avenue",
+    secondary: "Islamabad, Pakistan",
+    description: "Open Mon–Sat, 9:00 AM – 6:00 PM.",
+  },
+  {
+    icon: Clock,
+    title: "Business Hours",
+    primary: "Mon – Sat: 9 AM – 6 PM",
+    secondary: "Chauffeur: 24/7 Available",
+    description: "Emergency support available around the clock.",
+  },
+];
+
+export default function ContactPage() {
+  return (
+    <>
+      <Navbar />
+
+      <PageHeader
+        badge="Contact Us"
+        title="Let's"
+        highlight="Connect"
+        description="Have a question, need a quote, or want to book a service? We're here to help. Reach out through any channel below."
+      />
+
+      {/* Contact Info Cards */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-20">
+            {contactInfo.map((item) => (
+              <div
+                key={item.title}
+                className="bg-navy-50/50 border border-blue-50 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300"
+              >
+                <div className="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center mb-4">
+                  <item.icon className="w-5 h-5 text-gold-500" />
+                </div>
+                <h3 className="text-lg font-bold text-navy-900 mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-navy-900 font-medium text-sm">{item.primary}</p>
+                <p className="text-gray-500 text-sm">{item.secondary}</p>
+                <p className="text-gray-400 text-xs mt-2">{item.description}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Contact Form */}
+          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
+            {/* Form — takes 3 cols (client component) */}
+            <ContactForm />
+
+            {/* Sidebar — takes 2 cols */}
+            <div className="lg:col-span-2 space-y-6">
+              {/* Map placeholder */}
+              <div className="bg-gradient-to-b from-navy-950 to-navy-900 rounded-2xl p-8 text-center aspect-[4/3] flex flex-col items-center justify-center">
+                <MapPin className="w-10 h-10 text-blue-300 mb-4" />
+                <h3 className="text-white font-bold text-lg mb-1">Our Location</h3>
+                <p className="text-blue-200/40 text-sm">
+                  Blue Area, Jinnah Avenue
+                  <br />
+                  Islamabad, Pakistan
+                </p>
+              </div>
+
+              {/* Quick Contact */}
+              <div className="bg-gradient-to-b from-navy-950 to-navy-900 rounded-2xl p-8">
+                <h3 className="text-white font-bold text-lg mb-4">
+                  Prefer to Talk?
+                </h3>
+                <p className="text-blue-200/40 text-sm mb-6 leading-relaxed">
+                  Our team is ready to assist you. Call us directly or send a WhatsApp message for instant support.
+                </p>
+                <div className="space-y-3">
+                  <a
+                    href="tel:+923001234567"
+                    className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 hover:bg-white/10 transition-colors"
+                  >
+                    <Phone className="w-5 h-5 text-blue-400" />
+                    <span className="text-white text-sm font-medium">+92 300 1234567</span>
+                  </a>
+                  <a
+                    href="mailto:info@asdtechnology.com"
+                    className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 hover:bg-white/10 transition-colors"
+                  >
+                    <Mail className="w-5 h-5 text-blue-400" />
+                    <span className="text-white text-sm font-medium">info@asdtechnology.com</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </>
+  );
+}
