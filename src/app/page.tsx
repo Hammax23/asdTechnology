@@ -42,7 +42,7 @@ function Hero() {
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-600/5 rounded-full blur-[100px]" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 pb-12 sm:pb-16 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 pb-12 sm:pb-16 w-full">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-20 items-center">
           {/* Left — Content */}
           <div className="text-center lg:text-left">
@@ -168,17 +168,16 @@ function Services() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="group relative bg-white border border-gray-100 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-900/10 hover:border-blue-200 hover:bg-gradient-to-br hover:from-blue-50 hover:to-white"
+              className="group relative rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#0172bd]/30 hover:scale-[1.03] cursor-pointer"
+              style={{ backgroundColor: "#0172BD" }}
             >
-              <div
-                className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-5`}
-              >
-                <service.icon className={`w-6 h-6 ${service.iconColor}`} />
+              <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:bg-white/30">
+                <service.icon className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-lg font-bold text-navy-900 mb-2">
+              <h3 className="text-lg font-bold text-white mb-2">
                 {service.title}
               </h3>
-              <p className="text-gray-500 leading-relaxed text-sm">
+              <p className="text-white/80 leading-relaxed text-sm">
                 {service.description}
               </p>
             </div>
@@ -201,27 +200,26 @@ function About() {
               About Us
             </span>
             <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-navy-900 tracking-tight leading-tight">
-              A Decade of Excellence in Digital Solutions
+              Your Technology & Transportation Partner in Oakville
             </h2>
             <p className="mt-6 text-gray-600 text-lg leading-relaxed">
-              ASD Technology was founded with a clear vision: to help businesses
-              grow through modern, intelligent digital solutions. Over the past
-              decade, we have become a trusted partner for brands that want
-              reliable technology, clean design, and measurable results.
+              Starting in 2018 from our home office in Oakville, we began by helping
+              local businesses build better websites. What started as a two-person 
+              web development team has grown into a full-service digital agency.
             </p>
             <p className="mt-4 text-gray-600 text-lg leading-relaxed">
-              From custom web development and cloud infrastructure to SEO and
-              digital marketing, our team combines strategy, creativity, and
-              engineering to deliver experiences that feel seamless for your
-              users and powerful for your business.
+              In 2021, we expanded into executive transportation services after
+              several clients needed reliable airport transfers for their business
+              meetings. Today, we&#39;re proud to serve both technology and transportation
+              needs across the Greater Toronto Area.
             </p>
 
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
               {[
-                { icon: Award, label: "Award Winning", sub: "Service Provider" },
-                { icon: Users, label: "Expert Team", sub: "Certified Professionals" },
-                { icon: Clock, label: "On-Time", sub: "100% Punctuality" },
-                { icon: Star, label: "5-Star", sub: "Client Ratings" },
+                { icon: Award, label: "Since 2018", sub: "Established Business" },
+                { icon: Users, label: "Local Team", sub: "GTA Based" },
+                { icon: Clock, label: "Same Day", sub: "Quick Response" },
+                { icon: Star, label: "4.8/5", sub: "Google Reviews" },
               ].map((item) => (
                 <div key={item.label} className="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm">
                   <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
@@ -257,31 +255,37 @@ function About() {
 /* ───────────────────── Chauffeur Highlight ───────────────────── */
 const chauffeurReasons = [
   {
+    title: "Smart Connected Vehicles",
+    description:
+      "Complimentary WiFi for productivity and GPS tracking for safety and security in all vehicles.",
+  },
+  {
     title: "Dedicated Account Management",
     description:
-      "Personalized account support for corporate and frequent travelers, with tailored preferences and billing.",
+      "Personalized support with tailored preferences, consolidated billing, and 24/7 priority assistance.",
   },
   {
-    title: "Safety & Privacy",
+    title: "Premium Safety & Privacy",
     description:
-      "Discreet chauffeurs, secure routes, and strict confidentiality to protect your safety and privacy.",
+      "Background-checked drivers, secure routes, real-time tracking, and strict confidentiality protocols.",
   },
   {
-    title: "Reservations Anywhere",
+    title: "Global Reservations Network",
     description:
-      "Book reliable chauffeur services across cities and regions with a single, simple reservation process.",
+      "Multi-city coverage with simple booking and consistent premium service standards worldwide.",
   },
   {
-    title: "Meet & Greet Service",
+    title: "VIP Meet & Greet Experience",
     description:
-      "Professional airport and lobby meet-and-greet to welcome guests, assist with luggage, and guide them smoothly.",
+      "Professional airport and lobby service with luggage assistance and seamless guest coordination.",
   },
   {
-    title: "Private Chartered Jet Coordination",
+    title: "Private Jet & Luxury Fleet Coordination",
     description:
-      "Seamless ground transportation coordination with private jet schedules for truly end-to-end luxury travel.",
+      "Seamless coordination with private jets featuring executive sedans, luxury SUVs, and specialty vehicles.",
   },
 ];
+
 
 function ChauffeurSection() {
   return (

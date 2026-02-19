@@ -196,12 +196,19 @@ export default function ContactForm() {
             <option value="">Select a service</option>
             {serviceType === "technology" ? (
               <>
-                <option value="software-dev">Software Development</option>
+                <option value="software-dev">Custom Software Development</option>
+                <option value="web-dev">Website Development</option>
+                <option value="ecommerce-dev">E‑Commerce Website Development</option>
+                <option value="web-app-dev">Web Application Development</option>
+                <option value="landing-page">Landing Page / Portfolio Website</option>
+                <option value="wordpress-dev">WordPress / CMS Development</option>
+                <option value="ui-ux">UI/UX Design for Web</option>
+                <option value="seo">SEO Services</option>
+                <option value="digital-marketing">Digital Marketing</option>
                 <option value="it-consulting">IT Consulting</option>
                 <option value="cloud">Cloud Solutions</option>
                 <option value="cybersecurity">Cybersecurity</option>
-                <option value="data">Data & Analytics</option>
-                <option value="support">24/7 Tech Support</option>
+                <option value="tech-support">Technical Support</option>
               </>
             ) : (
               <>

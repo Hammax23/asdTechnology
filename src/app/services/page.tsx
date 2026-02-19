@@ -11,8 +11,9 @@ import {
   Plane,
   Building,
   Clock,
-  MapPin,
   Settings,
+  Wifi,
+  Shield,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -108,39 +109,40 @@ const techServices = [
 
 const chauffeurServices = [
   {
-    icon: Plane,
-    title: "Reservations Anywhere",
+    icon: Wifi,
+    title: "Smart Connected Vehicles",
     description:
-      "Book reliable chauffeur services across cities and regions with a single, simple reservation process.",
-    features: ["Multi‑city coverage", "Simple booking flow", "24/7 availability", "Corporate & personal travel"],
+      "Complimentary WiFi for productivity and GPS tracking for safety and security in all vehicles.",
   },
   {
     icon: Building,
     title: "Dedicated Account Management",
     description:
-      "Personalized account support for corporate and frequent travelers, with tailored preferences and billing.",
-    features: ["Dedicated account manager", "Custom preferences", "Consolidated billing", "Priority support"],
+      "Personalized support with tailored preferences, consolidated billing, and 24/7 priority assistance.",
+  },
+  {
+    icon: Shield,
+    title: "Premium Safety & Privacy",
+    description:
+      "Background-checked drivers, secure routes, real-time tracking, and strict confidentiality protocols.",
+  },
+  {
+    icon: Plane,
+    title: "Global Reservations Network",
+    description:
+      "Multi-city coverage with simple booking and consistent premium service standards worldwide.",
   },
   {
     icon: Clock,
-    title: "Meet & Greet Service",
+    title: "VIP Meet & Greet Experience",
     description:
-      "Professional airport and lobby meet‑and‑greet to welcome guests, assist with luggage, and guide them smoothly.",
-    features: ["Airport arrivals support", "Lobby meet & greet", "Luggage assistance", "Guest coordination"],
-  },
-  {
-    icon: MapPin,
-    title: "Safety & Privacy",
-    description:
-      "Discreet chauffeurs, secure routes, and strict confidentiality to protect your safety and privacy.",
-    features: ["Background‑checked drivers", "Discreet service", "Secure route planning", "Confidentiality by default"],
+      "Professional airport and lobby service with luggage assistance and seamless guest coordination.",
   },
   {
     icon: Settings,
-    title: "Private Chartered Jet Coordination",
+    title: "Private Jet & Luxury Fleet Coordination",
     description:
-      "Seamless ground transportation coordination with private jet schedules for truly end‑to‑end luxury travel.",
-    features: ["Jet schedule coordination", "Runway & FBO transfers", "VIP handling", "End‑to‑end itinerary support"],
+      "Seamless coordination with private jets featuring executive sedans, luxury SUVs, and specialty vehicles.",
   },
 ];
 
@@ -240,14 +242,7 @@ export default function ServicesPage() {
                   <service.icon className="w-6 h-6 text-blue-300" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{service.title}</h3>
-                <p className="text-blue-200/40 leading-relaxed text-sm mb-4">{service.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {service.features.map((f) => (
-                    <span key={f} className="text-xs bg-white/5 text-blue-200/40 px-2.5 py-1 rounded-full border border-white/5">
-                      {f}
-                    </span>
-                  ))}
-                </div>
+                <p className="text-blue-200/40 leading-relaxed text-sm">{service.description}</p>
               </div>
             ))}
           </div>

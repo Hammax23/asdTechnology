@@ -7,7 +7,7 @@ interface PageHeaderProps {
 
 export default function PageHeader({ badge, title, highlight, description }: PageHeaderProps) {
   return (
-    <section className="relative bg-gradient-to-b from-navy-950 to-navy-900 pt-32 sm:pt-40 pb-16 sm:pb-24 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-navy-950 to-navy-900 pt-36 sm:pt-44 pb-16 sm:pb-24 overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gold-400/8 rounded-full blur-[120px]" />
       </div>

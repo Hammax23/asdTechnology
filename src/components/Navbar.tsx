@@ -24,7 +24,7 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-b border-gray-100 shadow-sm">
+    <nav className="fixed top-[40px] left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[80px] sm:h-[88px]">
           {/* Logo */}
@@ -34,7 +34,7 @@ export default function Navbar() {
             <img
               src="/logo3.png"
               alt="ASD Technologies"
-              className="h-20 w-auto sm:h-24 md:h-[110px] md:w-[250px] max-w-full"
+              className="h-20 w-auto sm:h-24 md:h-[95px] md:w-[220px] max-w-full"
             />
           </Link>
 
@@ -75,7 +75,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`md:hidden fixed inset-0 top-[80px] sm:top-[88px] z-40 transition-all duration-300 ${
+        className={`md:hidden fixed inset-0 top-[120px] sm:top-[128px] z-40 transition-all duration-300 ${
           mobileOpen ? "visible opacity-100" : "invisible opacity-0"
         }`}
       >

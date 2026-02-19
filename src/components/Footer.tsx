@@ -78,15 +78,15 @@ export default function Footer() {
             <ul className="space-y-3.5">
               <li className="flex items-center gap-2.5 text-blue-200/40 text-sm">
                 <Phone className="w-4 h-4 text-blue-400" />
-                +92 300 1234567
+                416-893-5779
               </li>
               <li className="flex items-center gap-2.5 text-blue-200/40 text-sm">
                 <Mail className="w-4 h-4 text-blue-400" />
-                info@asdtechnology.com
+                info@asdtechnology.ca
               </li>
               <li className="flex items-center gap-2.5 text-blue-200/40 text-sm">
                 <MapPin className="w-4 h-4 text-blue-400" />
-                Islamabad, Pakistan
+                231 Oak Park Blvd, Oakville, ON L6H 7S8
               </li>
             </ul>
           </div>

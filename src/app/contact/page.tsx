@@ -15,22 +15,22 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Call Us",
-    primary: "+92 300 1234567",
-    secondary: "+92 51 1234567",
+    primary: "416-893-5779",
+    secondary: "24/7 Available",
     description: "Available 24/7 for bookings and support.",
   },
   {
     icon: Mail,
     title: "Email Us",
-    primary: "info@asdtechnology.com",
-    secondary: "support@asdtechnology.com",
+    primary: "info@asdtechnology.ca",
+    secondary: "Quick Response",
     description: "We respond within 2 hours during business hours.",
   },
   {
     icon: MapPin,
     title: "Visit Us",
-    primary: "Blue Area, Jinnah Avenue",
-    secondary: "Islamabad, Pakistan",
+    primary: "231 Oak Park Blvd",
+    secondary: "Oakville, ON L6H 7S8",
     description: "Open Mon–Sat, 9:00 AM – 6:00 PM.",
   },
   {
@@ -82,18 +82,7 @@ export default function ContactPage() {
             <ContactForm />
 
             {/* Sidebar — takes 2 cols */}
-            <div className="lg:col-span-2 space-y-6">
-              {/* Map placeholder */}
-              <div className="bg-gradient-to-b from-navy-950 to-navy-900 rounded-2xl p-8 text-center aspect-[4/3] flex flex-col items-center justify-center">
-                <MapPin className="w-10 h-10 text-blue-300 mb-4" />
-                <h3 className="text-white font-bold text-lg mb-1">Our Location</h3>
-                <p className="text-blue-200/40 text-sm">
-                  Blue Area, Jinnah Avenue
-                  <br />
-                  Islamabad, Pakistan
-                </p>
-              </div>
-
+            <div className="lg:col-span-2">
               {/* Quick Contact */}
               <div className="bg-gradient-to-b from-navy-950 to-navy-900 rounded-2xl p-8">
                 <h3 className="text-white font-bold text-lg mb-4">
@@ -104,18 +93,18 @@ export default function ContactPage() {
                 </p>
                 <div className="space-y-3">
                   <a
-                    href="tel:+923001234567"
+                    href="tel:+14168935779"
                     className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 hover:bg-white/10 transition-colors"
                   >
                     <Phone className="w-5 h-5 text-blue-400" />
-                    <span className="text-white text-sm font-medium">+92 300 1234567</span>
+                    <span className="text-white text-sm font-medium">416-893-5779</span>
                   </a>
                   <a
-                    href="mailto:info@asdtechnology.com"
+                    href="mailto:info@asdtechnology.ca"
                     className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 hover:bg-white/10 transition-colors"
                   >
                     <Mail className="w-5 h-5 text-blue-400" />
-                    <span className="text-white text-sm font-medium">info@asdtechnology.com</span>
+                    <span className="text-white text-sm font-medium">info@asdtechnology.ca</span>
                   </a>
                 </div>
               </div>

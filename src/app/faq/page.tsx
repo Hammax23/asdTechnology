@@ -18,11 +18,11 @@ const generalFaqs = [
   },
   {
     question: "Where is ASD Technology based?",
-    answer: "Our headquarters is located in Blue Area, Jinnah Avenue, Islamabad, Pakistan. However, we serve clients across the region and can provide technology services remotely to clients worldwide.",
+    answer: "Our headquarters is located at 231 Oak Park Blvd, Oakville, ON L6H 7S8, Canada. However, we serve clients across the region and can provide technology services remotely to clients worldwide.",
   },
   {
     question: "How can I request a quote?",
-    answer: "You can request a free quote through our website's contact form, by calling us at +92 300 1234567, or by emailing info@asdtechnology.com. We typically respond within 2 hours during business hours.",
+    answer: "You can request a free quote through our website's contact form, by calling us at 416-893-5779, or by emailing info@asdtechnology.ca. We typically respond within 2 hours during business hours.",
   },
   {
     question: "What are your business hours?",
