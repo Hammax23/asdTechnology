@@ -3,20 +3,99 @@
 import { useState } from "react";
 import {
   Mail,
-  Cpu,
-  Car,
   ArrowRight,
   MapPin,
   Calendar,
+  CheckCircle,
+  Loader2,
 } from "lucide-react";
 
 export default function QuoteForm() {
   const [serviceType, setServiceType] = useState<"technology" | "chauffeur">(
     "technology"
   );
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  
+  // Form data state
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    specificService: "",
+    pickupLocation: "",
+    dropoffLocation: "",
+    pickupDate: "",
+    pickupTime: "",
+    message: "",
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          serviceType,
+          formType: "quote",
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          specificService: "",
+          pickupLocation: "",
+          dropoffLocation: "",
+          pickupDate: "",
+          pickupTime: "",
+          message: "",
+        });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const inputClass =
     "w-full bg-white/[0.06] border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-400/50 focus:bg-white/[0.08] transition-all duration-200";
+
+  if (submitStatus === "success") {
+    return (
+      <div className="relative bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-7 sm:p-9 shadow-2xl shadow-black/10 text-center">
+        <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-4">
+          <CheckCircle className="w-8 h-8 text-green-400" />
+        </div>
+        <h3 className="text-white font-bold text-xl mb-2">Thank You!</h3>
+        <p className="text-blue-200/60 text-sm mb-4">
+          Your quote request has been submitted successfully. We will get back to you within 2 hours.
+        </p>
+        <button
+          onClick={() => setSubmitStatus("idle")}
+          className="text-gold-400 hover:text-gold-300 text-sm font-medium"
+        >
+          Submit Another Request
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="relative bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl p-7 sm:p-9 shadow-2xl shadow-black/10">
@@ -34,14 +113,20 @@ export default function QuoteForm() {
         </div>
       </div>
 
-      <form className="space-y-3.5">
+      {submitStatus === "error" && (
+        <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-3 mb-4">
+          <p className="text-red-400 text-sm">Something went wrong. Please try again or contact us directly.</p>
+        </div>
+      )}
+
+      <form onSubmit={handleSubmit} className="space-y-3.5">
         {/* Name & Email */}
         <div className="grid sm:grid-cols-2 gap-3.5">
           <div>
             <label className="block text-xs font-medium text-gray-400 mb-1.5 ml-1">
               Full Name
             </label>
-            <input type="text" placeholder="John Doe" className={inputClass} />
+            <input type="text" name="name" value={formData.name} onChange={handleInputChange} placeholder="John Doe" className={inputClass} required />
           </div>
           <div>
             <label className="block text-xs font-medium text-gray-400 mb-1.5 ml-1">
@@ -49,8 +134,12 @@ export default function QuoteForm() {
             </label>
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
               placeholder="john@example.com"
               className={inputClass}
+              required
             />
           </div>
         </div>
@@ -62,8 +151,12 @@ export default function QuoteForm() {
           </label>
           <input
             type="tel"
-            placeholder="+92 300 0000000"
+            name="phone"
+            value={formData.phone}
+            onChange={handleInputChange}
+            placeholder="+1 416 000 0000"
             className={inputClass}
+            required
           />
         </div>
 
@@ -76,6 +169,10 @@ export default function QuoteForm() {
           </label>
           <select
             key={serviceType}
+            name="specificService"
+            value={formData.specificService}
+            onChange={handleInputChange}
+            required
             className={`${inputClass} text-gray-400 appearance-none [&>option]:bg-navy-950 [&>option]:text-white [&>option]:py-2`}
           >
             {serviceType === "technology" ? (
@@ -128,7 +225,10 @@ export default function QuoteForm() {
                     <MapPin className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
                     <input
                       type="text"
-                      placeholder="e.g. Islamabad Airport"
+                      name="pickupLocation"
+                      value={formData.pickupLocation}
+                      onChange={handleInputChange}
+                      placeholder="e.g. Toronto Airport"
                       className={`${inputClass} pl-10`}
                     />
                   </div>
@@ -141,7 +241,10 @@ export default function QuoteForm() {
                     <MapPin className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
                     <input
                       type="text"
-                      placeholder="e.g. Serena Hotel"
+                      name="dropoffLocation"
+                      value={formData.dropoffLocation}
+                      onChange={handleInputChange}
+                      placeholder="e.g. Downtown Hotel"
                       className={`${inputClass} pl-10`}
                     />
                   </div>
@@ -158,6 +261,9 @@ export default function QuoteForm() {
                     <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
                     <input
                       type="date"
+                      name="pickupDate"
+                      value={formData.pickupDate}
+                      onChange={handleInputChange}
                       className={`${inputClass} pl-10 [color-scheme:dark]`}
                     />
                   </div>
@@ -170,6 +276,9 @@ export default function QuoteForm() {
                     <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
                     <input
                       type="time"
+                      name="pickupTime"
+                      value={formData.pickupTime}
+                      onChange={handleInputChange}
                       className={`${inputClass} pl-10 [color-scheme:dark]`}
                     />
                   </div>
@@ -188,6 +297,9 @@ export default function QuoteForm() {
           </label>
           <textarea
             rows={3}
+            name="message"
+            value={formData.message}
+            onChange={handleInputChange}
             placeholder={
               serviceType === "chauffeur"
                 ? "Any special requirements (e.g. child seat, luggage)..."
@@ -200,10 +312,20 @@ export default function QuoteForm() {
         {/* Submit */}
         <button
           type="submit"
-          className="w-full bg-gold-500 hover:bg-gold-600 text-white py-3 rounded-lg font-semibold text-sm shadow-sm hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2"
+          disabled={isSubmitting}
+          className="w-full bg-gold-500 hover:bg-gold-600 disabled:bg-gold-500/50 disabled:cursor-not-allowed text-white py-3 rounded-lg font-semibold text-sm shadow-sm hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2"
         >
-          {serviceType === "chauffeur" ? "Book Chauffeur" : "Get Free Quote"}
-          <ArrowRight className="w-4 h-4" />
+          {isSubmitting ? (
+            <>
+              <Loader2 className="w-4 h-4 animate-spin" />
+              Sending...
+            </>
+          ) : (
+            <>
+              {serviceType === "chauffeur" ? "Book Chauffeur" : "Get Free Quote"}
+              <ArrowRight className="w-4 h-4" />
+            </>
+          )}
         </button>
       </form>
 

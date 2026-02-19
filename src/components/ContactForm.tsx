@@ -8,15 +8,99 @@ import {
   MapPin,
   Calendar,
   ArrowRight,
+  CheckCircle,
+  Loader2,
 } from "lucide-react";
 
 type ServiceType = "technology" | "chauffeur";
 
 export default function ContactForm() {
   const [serviceType, setServiceType] = useState<ServiceType>("technology");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    specificService: "",
+    pickupLocation: "",
+    dropoffLocation: "",
+    carType: "",
+    pickupDate: "",
+    pickupTime: "",
+    message: "",
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          serviceType,
+          formType: "contact",
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          specificService: "",
+          pickupLocation: "",
+          dropoffLocation: "",
+          carType: "",
+          pickupDate: "",
+          pickupTime: "",
+          message: "",
+        });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const inputClass =
     "w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-navy-900 placeholder-gray-400 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500/20 transition-all";
+
+  if (submitStatus === "success") {
+    return (
+      <div className="lg:col-span-3 bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
+        <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+          <CheckCircle className="w-8 h-8 text-green-600" />
+        </div>
+        <h3 className="text-navy-900 font-bold text-xl mb-2">Message Sent!</h3>
+        <p className="text-gray-600 text-sm mb-4">
+          Thank you for contacting us. We will get back to you within 2 hours.
+        </p>
+        <button
+          onClick={() => setSubmitStatus("idle")}
+          className="text-gold-500 hover:text-gold-600 text-sm font-medium"
+        >
+          Send Another Message
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="lg:col-span-3">
@@ -32,7 +116,13 @@ export default function ContactForm() {
         </div>
       </div>
 
-      <form className="space-y-5">
+      {submitStatus === "error" && (
+        <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+          <p className="text-red-600 text-sm">Something went wrong. Please try again or contact us directly at info@asdtechnology.ca</p>
+        </div>
+      )}
+
+      <form onSubmit={handleSubmit} className="space-y-5">
         <div className="grid sm:grid-cols-2 gap-5">
           <div>
             <label className="block text-sm font-medium text-navy-900 mb-2">
@@ -40,8 +130,12 @@ export default function ContactForm() {
             </label>
             <input
               type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
               placeholder="Your full name"
               className={inputClass}
+              required
             />
           </div>
           <div>
@@ -50,8 +144,12 @@ export default function ContactForm() {
             </label>
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
               placeholder="you@example.com"
               className={inputClass}
+              required
             />
           </div>
         </div>
@@ -63,8 +161,12 @@ export default function ContactForm() {
             </label>
             <input
               type="tel"
-              placeholder="+92 300 0000000"
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange}
+              placeholder="+1 416 000 0000"
               className={inputClass}
+              required
             />
           </div>
           <div>
@@ -73,6 +175,9 @@ export default function ContactForm() {
             </label>
             <input
               type="text"
+              name="company"
+              value={formData.company}
+              onChange={handleInputChange}
               placeholder="Your company name"
               className={inputClass}
             />
@@ -131,7 +236,10 @@ export default function ContactForm() {
                   <MapPin className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
                   <input
                     type="text"
-                    placeholder="e.g. Islamabad Airport"
+                    name="pickupLocation"
+                    value={formData.pickupLocation}
+                    onChange={handleInputChange}
+                    placeholder="e.g. Toronto Airport"
                     className={`${inputClass} pl-9`}
                   />
                 </div>
@@ -144,7 +252,10 @@ export default function ContactForm() {
                   <MapPin className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
                   <input
                     type="text"
-                    placeholder="e.g. Serena Hotel"
+                    name="dropoffLocation"
+                    value={formData.dropoffLocation}
+                    onChange={handleInputChange}
+                    placeholder="e.g. Downtown Hotel"
                     className={`${inputClass} pl-9`}
                   />
                 </div>
@@ -155,7 +266,7 @@ export default function ContactForm() {
               <label className="block text-sm font-medium text-navy-900 mb-2">
                 Select Car
               </label>
-              <select className={inputClass}>
+              <select name="carType" value={formData.carType} onChange={handleInputChange} className={inputClass}>
                 <option value="">Choose a vehicle type</option>
                 <option value="executive-sedan">Executive Sedan</option>
                 <option value="luxury-sedan">Luxury Sedan</option>
@@ -171,7 +282,7 @@ export default function ContactForm() {
                 </label>
                 <div className="relative">
                   <Calendar className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                  <input type="date" className={`${inputClass} pl-9`} />
+                  <input type="date" name="pickupDate" value={formData.pickupDate} onChange={handleInputChange} className={`${inputClass} pl-9`} />
                 </div>
               </div>
               <div>
@@ -180,7 +291,7 @@ export default function ContactForm() {
                 </label>
                 <div className="relative">
                   <Calendar className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                  <input type="time" className={`${inputClass} pl-9`} />
+                  <input type="time" name="pickupTime" value={formData.pickupTime} onChange={handleInputChange} className={`${inputClass} pl-9`} />
                 </div>
               </div>
             </div>
@@ -192,7 +303,7 @@ export default function ContactForm() {
           <label className="block text-sm font-medium text-navy-900 mb-2">
             Specific Service
           </label>
-          <select className={inputClass} key={serviceType}>
+          <select name="specificService" value={formData.specificService} onChange={handleInputChange} required className={inputClass} key={serviceType}>
             <option value="">Select a service</option>
             {serviceType === "technology" ? (
               <>
@@ -230,6 +341,9 @@ export default function ContactForm() {
           </label>
           <textarea
             rows={5}
+            name="message"
+            value={formData.message}
+            onChange={handleInputChange}
             placeholder="Tell us about your project or transportation needs..."
             className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-navy-900 placeholder-gray-400 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500/20 transition-all resize-none"
           />
@@ -237,10 +351,20 @@ export default function ContactForm() {
 
         <button
           type="submit"
-          className="w-full sm:w-auto bg-gold-500 hover:bg-gold-600 text-white px-8 py-3.5 rounded-lg font-semibold text-sm shadow-sm hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2"
+          disabled={isSubmitting}
+          className="w-full sm:w-auto bg-gold-500 hover:bg-gold-600 disabled:bg-gold-500/50 disabled:cursor-not-allowed text-white px-8 py-3.5 rounded-lg font-semibold text-sm shadow-sm hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2"
         >
-          Send Message
-          <ArrowRight className="w-4 h-4" />
+          {isSubmitting ? (
+            <>
+              <Loader2 className="w-4 h-4 animate-spin" />
+              Sending...
+            </>
+          ) : (
+            <>
+              Send Message
+              <ArrowRight className="w-4 h-4" />
+            </>
+          )}
         </button>
       </form>
     </div>
