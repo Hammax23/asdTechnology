@@ -53,6 +53,18 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
+            
+            {/* Canada Flag Badge */}
+            <div className="flex items-center gap-1.5 text-xs text-gray-500">
+              <svg className="w-8 h-5 rounded-sm border border-gray-200" viewBox="0 0 40 20" fill="none">
+                <rect width="10" height="20" fill="#FF0000"/>
+                <rect x="10" width="20" height="20" fill="#FFFFFF"/>
+                <rect x="30" width="10" height="20" fill="#FF0000"/>
+                <path d="M20 4L21 7H19L20 4ZM16 10L18 9L17 11L14 10L16 12L15 14L17 13L16 16H18L17.5 13L20 15L22.5 13L22 16H24L23 13L25 14L24 12L26 10L23 11L22 9L24 7H22L20 4L18 7H16L18 9L16 10Z" fill="#FF0000"/>
+              </svg>
+              <span className="font-medium">Canada</span>
+            </div>
+
             <Link
               href="/contact"
               className="bg-gold-500 hover:bg-gold-600 text-white px-6 py-2.5 rounded-lg text-sm font-semibold shadow-sm hover:shadow-md transition-all duration-200"
@@ -61,15 +73,25 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Hamburger */}
-          <button
-            type="button"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-lg text-navy-900 hover:bg-gray-100 transition-colors"
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          {/* Mobile: Canada Flag + Hamburger */}
+          <div className="md:hidden flex items-center gap-2">
+            {/* Canada Flag for Mobile */}
+            <svg className="w-8 h-5 rounded-sm border border-gray-200" viewBox="0 0 40 20" fill="none">
+              <rect width="10" height="20" fill="#FF0000"/>
+              <rect x="10" width="20" height="20" fill="#FFFFFF"/>
+              <rect x="30" width="10" height="20" fill="#FF0000"/>
+              <path d="M20 4L21 7H19L20 4ZM16 10L18 9L17 11L14 10L16 12L15 14L17 13L16 16H18L17.5 13L20 15L22.5 13L22 16H24L23 13L25 14L24 12L26 10L23 11L22 9L24 7H22L20 4L18 7H16L18 9L16 10Z" fill="#FF0000"/>
+            </svg>
+            
+            <button
+              type="button"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="relative w-10 h-10 flex items-center justify-center rounded-lg text-navy-900 hover:bg-gray-100 transition-colors"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            >
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
       </div>
 

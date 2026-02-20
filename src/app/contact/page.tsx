@@ -6,18 +6,19 @@ import PageHeader from "@/components/PageHeader";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Us | ASD Technology",
+  title: "Contact Us | ASD Technology - Web Development Canada",
   description:
-    "Get in touch with ASD Technology for technology solutions and chauffeur services. We respond within 2 hours.",
+    "Contact ASD Technology for web development, custom software, and digital marketing services in Canada. Get a free quote - we respond within 2 hours.",
+  keywords: "contact web developer Canada, hire software developer Oakville, web development quote Toronto",
 };
 
 const contactInfo = [
   {
     icon: Phone,
     title: "Call Us",
-    primary: "416-893-5779",
+   
     secondary: "24/7 Available",
-    description: "Available 24/7 for bookings and support.",
+    
   },
   {
     icon: Mail,
@@ -37,8 +38,8 @@ const contactInfo = [
     icon: Clock,
     title: "Business Hours",
     primary: "Mon – Sat: 9 AM – 6 PM",
-    secondary: "Chauffeur: 24/7 Available",
-    description: "Emergency support available around the clock.",
+   
+    
   },
 ];
 
@@ -93,11 +94,11 @@ export default function ContactPage() {
                 </p>
                 <div className="space-y-3">
                   <a
-                    href="tel:+14168935779"
+                    href="tel:+14164180528"
                     className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl px-4 py-3 hover:bg-white/10 transition-colors"
                   >
                     <Phone className="w-5 h-5 text-blue-400" />
-                    <span className="text-white text-sm font-medium">416-893-5779</span>
+                    <span className="text-white text-sm font-medium">416-418-0528</span>
                   </a>
                   <a
                     href="mailto:info@asdtechnology.ca"

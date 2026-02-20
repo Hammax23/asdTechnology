@@ -6,9 +6,10 @@ import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
-  title: "FAQ | ASD Technology",
+  title: "FAQ | ASD Technology - Web Development Questions",
   description:
-    "Frequently asked questions about ASD Technology's technology solutions and chauffeur services.",
+    "Frequently asked questions about ASD Technology's web development, software solutions, SEO, and digital marketing services in Canada.",
+  keywords: "web development FAQ, software development questions, SEO services FAQ Canada",
 };
 
 const generalFaqs = [
@@ -22,7 +23,7 @@ const generalFaqs = [
   },
   {
     question: "How can I request a quote?",
-    answer: "You can request a free quote through our website's contact form, by calling us at 416-893-5779, or by emailing info@asdtechnology.ca. We typically respond within 2 hours during business hours.",
+    answer: "You can request a free quote through our website's contact form, by calling us at 416-418-0528, or by emailing info@asdtechnology.ca. We typically respond within 2 hours during business hours.",
   },
   {
     question: "What are your business hours?",

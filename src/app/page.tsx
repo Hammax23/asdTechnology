@@ -36,6 +36,8 @@ function Hero() {
           loop
           muted
           playsInline
+          preload="auto"
+          poster="/cover-poster.jpg"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950/80 to-navy-900/90" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-blue-500/6 rounded-full blur-[120px]" />

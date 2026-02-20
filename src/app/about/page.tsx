@@ -16,9 +16,10 @@ import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
-  title: "About Us | ASD Technology",
+  title: "About Us | ASD Technology - Web Development Company Canada",
   description:
-    "Learn about ASD Technology — a decade of excellence in technology solutions and premium chauffeur services.",
+    "Learn about ASD Technology - a trusted web development and digital solutions company in Oakville, Canada. Serving businesses across the GTA since 2018.",
+  keywords: "about ASD Technology, web development company Oakville, software company Canada, digital agency Toronto",
 };
 
 const values = [

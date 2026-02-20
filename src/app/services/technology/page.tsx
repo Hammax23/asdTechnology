@@ -15,9 +15,10 @@ import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
-  title: "Technology Services | ASD Technology",
+  title: "Technology Services | ASD Technology - Software Development Canada",
   description:
-    "Enterprise-grade software development, IT consulting, cloud solutions, cybersecurity, and 24/7 technical support.",
+    "Enterprise-grade software development, IT consulting, cloud solutions, cybersecurity, and 24/7 technical support in Oakville, Canada. Serving businesses across the GTA.",
+  keywords: "software development Canada, IT consulting Oakville, cloud solutions Toronto, cybersecurity services GTA, technical support Canada",
 };
 
 const services = [

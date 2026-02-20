@@ -20,9 +20,10 @@ import Footer from "@/components/Footer";
 import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
-  title: "Our Services | ASD Technology",
+  title: "Web Development & Digital Services | ASD Technology Canada",
   description:
-    "Explore ASD Technology's digital solutions, including web development, SEO, digital marketing, cloud services, and premium chauffeur experiences.",
+    "Professional web development, custom software, e-commerce solutions, SEO, and digital marketing services in Oakville, Canada. Transform your business with ASD Technology.",
+  keywords: "web development services, custom software development, e-commerce website, SEO services Canada, digital marketing Oakville, IT consulting Toronto",
 };
 
 const techServices = [
@@ -153,9 +154,9 @@ export default function ServicesPage() {
 
       <PageHeader
         badge="Our Services"
-        title="Digital &"
-        highlight="Chauffeur Services"
-        description="Discover our full range of digital solutions — from web development and SEO to cloud and marketing — alongside executive chauffeured and private chartered services."
+        title="Digital & Technology"
+        highlight=" Services"
+        description="Discover our full range of digital solutions — from web development and SEO to cloud and marketing."
       />
 
       {/* Technology Services */}

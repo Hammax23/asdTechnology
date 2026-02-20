@@ -21,11 +21,11 @@ export default function TopContactBar() {
           
           {/* Phone */}
           <a 
-            href="tel:+14168935779"
+            href="tel:+14164180528"
             className="flex items-center gap-2 text-blue-200/80 hover:text-gold-400 transition-colors duration-200 group"
           >
             <Phone className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
-            <span className="text-sm font-medium">416-893-5779</span>
+            <span className="text-sm font-medium">416-418-0528</span>
           </a>
         </div>
       </div>
