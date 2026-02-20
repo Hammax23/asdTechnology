@@ -20,8 +20,11 @@ export const metadata: Metadata = {
   authors: [{ name: "ASD Technology" }],
   robots: "index, follow",
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/logo.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
     apple: "/logo.png",
   },
   openGraph: {
