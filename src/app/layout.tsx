@@ -31,6 +31,14 @@ export const metadata: Metadata = {
     siteName: "ASD Technology",
     locale: "en_CA",
     type: "website",
+    images: [
+      {
+        url: "/logo.png",
+        width: 512,
+        height: 512,
+        alt: "ASD Technology Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
