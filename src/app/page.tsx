@@ -299,9 +299,8 @@ function ChauffeurSection() {
           <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-white tracking-tight">
             Certified Executive Chauffeured Services & Private Chartered Jet Services
           </h2>
-          <p className="mt-3 max-w-2xl mx-auto text-blue-100/50 text-sm sm:text-base">
-            From airport transfers to corporate travel and events, our chauffeur
-            services are designed for comfort, reliability, and peace of mind.
+          <p className="mt-3 max-w-4xl mx-auto text-blue-100/50 text-sm sm:text-base">
+            We discuss your company&apos;s transportation needs and demonstrate how we can provide exceptional service. Our well trained professional transportation management services ensure the smooth operation of high profile events and corporate gatherings. We use advanced technology, a top tier fleet, a well certified trained team, and a commitment to environmental responsibility to deliver dependable, accurate, and safe transportation. Our professional team provides consistent, professional service to ensure you receive all the transportation you need.
           </p>
         </div>
 
