@@ -13,6 +13,9 @@ import {
   Globe2,
   Palette,
   Cloud,
+  Settings,
+  MapPin,
+  UserCheck,
   Search,
   Megaphone,
 } from "lucide-react";
@@ -257,34 +260,28 @@ function About() {
 /* ───────────────────── Chauffeur Highlight ───────────────────── */
 const chauffeurReasons = [
   {
-    title: "Smart Connected Vehicles",
+    icon: Users,
+    title: "DEDICATED BROKERED SERVICES",
     description:
-      "Complimentary WiFi for productivity and GPS tracking for safety and security in all vehicles.",
+      "Every local & international ride is covered by our Certified Chauffeurs.",
   },
   {
-    title: "Dedicated Account Management",
+    icon: Settings,
+    title: "DEDICATED ACCOUNT MANAGEMENT SYSTEM",
     description:
-      "Personalized support with tailored preferences, consolidated billing, and 24/7 priority assistance.",
+      "Personalize support with tailored billing. One bill, one setup, anywhere you travel.",
   },
   {
-    title: "Premium Safety & Privacy",
+    icon: MapPin,
+    title: "VEHICLE TRACKING APP",
     description:
-      "Background-checked drivers, secure routes, real-time tracking, and strict confidentiality protocols.",
+      "Each vehicle in our fleet is equipped with a tracking for better location of your driver.",
   },
   {
-    title: "Global Reservations Network",
+    icon: UserCheck,
+    title: "COMPUTERIZED MEET & GREET",
     description:
-      "Multi-city coverage with simple booking and consistent premium service standards worldwide.",
-  },
-  {
-    title: "VIP Meet & Greet Experience",
-    description:
-      "Professional airport and lobby service with luggage assistance and seamless guest coordination.",
-  },
-  {
-    title: "Private Jet & Luxury Fleet Coordination",
-    description:
-      "Seamless coordination with private jets featuring executive sedans, luxury SUVs, and specialty vehicles.",
+      "Travellers will receive personalized attention, and computerized sign inside terminals.",
   },
 ];
 
@@ -300,7 +297,7 @@ function ChauffeurSection() {
             Chauffeur Services
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-white tracking-tight">
-            Executive Chauffeured Services & Private Chartered Services
+            Certified Executive Chauffeured Services & Private Chartered Jet Services
           </h2>
           <p className="mt-3 max-w-2xl mx-auto text-blue-100/50 text-sm sm:text-base">
             From airport transfers to corporate travel and events, our chauffeur
@@ -308,15 +305,20 @@ function ChauffeurSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {chauffeurReasons.map((reason) => (
             <div
               key={reason.title}
               className="bg-white/5 border border-white/5 rounded-2xl p-7 hover:bg-white/8 hover:border-blue-400/15 transition-all duration-300"
             >
-              <h3 className="text-base font-bold text-white mb-2">
-                {reason.title}
-              </h3>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-lg bg-blue-500/20 border border-blue-400/30 flex items-center justify-center">
+                  <reason.icon className="w-6 h-6 text-blue-400" />
+                </div>
+                <h3 className="text-base font-bold text-white">
+                  {reason.title}
+                </h3>
+              </div>
               <p className="text-blue-200/40 leading-relaxed text-sm">
                 {reason.description}
               </p>

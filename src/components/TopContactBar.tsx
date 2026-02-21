@@ -7,6 +7,16 @@ export default function TopContactBar() {
     <div className="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-navy-950 to-navy-900 border-b border-navy-800/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center sm:justify-end py-2.5 gap-6">
+          {/* Canada Flag - Mobile Only */}
+          <div className="md:hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src="/canada.jpeg" 
+              alt="Canada Flag" 
+              className="w-6 h-4 rounded-sm border border-blue-300/20 object-cover"
+            />
+          </div>
+          
           {/* Email */}
           <a 
             href="mailto:info@asdtechnology.ca"

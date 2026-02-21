@@ -8,12 +8,10 @@ import {
   Cloud,
   Search,
   Megaphone,
-  Plane,
   Building,
   Clock,
   Settings,
   Wifi,
-  Shield,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -110,40 +108,28 @@ const techServices = [
 
 const chauffeurServices = [
   {
-    icon: Wifi,
-    title: "Smart Connected Vehicles",
-    description:
-      "Complimentary WiFi for productivity and GPS tracking for safety and security in all vehicles.",
-  },
-  {
     icon: Building,
-    title: "Dedicated Account Management",
+    title: "DEDICATED BROKERED SERVICES",
     description:
-      "Personalized support with tailored preferences, consolidated billing, and 24/7 priority assistance.",
-  },
-  {
-    icon: Shield,
-    title: "Premium Safety & Privacy",
-    description:
-      "Background-checked drivers, secure routes, real-time tracking, and strict confidentiality protocols.",
-  },
-  {
-    icon: Plane,
-    title: "Global Reservations Network",
-    description:
-      "Multi-city coverage with simple booking and consistent premium service standards worldwide.",
-  },
-  {
-    icon: Clock,
-    title: "VIP Meet & Greet Experience",
-    description:
-      "Professional airport and lobby service with luggage assistance and seamless guest coordination.",
+      "Every local & international ride is covered by our Certified Chauffeurs.",
   },
   {
     icon: Settings,
-    title: "Private Jet & Luxury Fleet Coordination",
+    title: "DEDICATED ACCOUNT MANAGEMENT SYSTEM",
     description:
-      "Seamless coordination with private jets featuring executive sedans, luxury SUVs, and specialty vehicles.",
+      "Personalize support with tailored billing. One bill, one setup, anywhere you travel.",
+  },
+  {
+    icon: Wifi,
+    title: "VEHICLE TRACKING APP",
+    description:
+      "Each vehicle in our fleet is equipped with a tracking for better location of your driver.",
+  },
+  {
+    icon: Clock,
+    title: "COMPUTERIZED MEET & GREET",
+    description:
+      "Travellers will receive personalized attention, and computerized sign inside terminals.",
   },
 ];
 
@@ -218,7 +204,7 @@ export default function ServicesPage() {
                 Chauffeur & Charter
               </span>
               <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-white tracking-tight">
-                Executive Chauffeured & Private Chartered Services
+                Certified Executive Chauffeured Services & Private Chartered Jet Services
               </h2>
               <p className="mt-3 text-blue-100/50 text-lg max-w-2xl">
                 Executive ground transportation, safety‑focused travel, and seamless coordination with private chartered flights.
@@ -233,7 +219,7 @@ export default function ServicesPage() {
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {chauffeurServices.map((service) => (
               <div
                 key={service.title}
