@@ -1,7 +1,6 @@
 import Link from "next/link";
 /* eslint-disable @next/next/no-img-element */
 import {
-  Monitor,
   Shield,
   Clock,
   Users,
@@ -17,7 +16,6 @@ import {
   MapPin,
   UserCheck,
   Search,
-  Megaphone,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -134,19 +132,19 @@ const services = [
   },
   {
     icon: Search,
-    title: "SEO Services",
+    title: "SEO & Digital Marketing",
     description:
-      "Search engine optimization that improves visibility, drives organic traffic, and grows your online presence.",
+      "Complete digital marketing solutions including SEO optimization, social media campaigns, and performance-driven strategies to boost your online presence and convert customers.",
     color: "from-emerald-500/20 to-emerald-600/20",
     iconColor: "text-emerald-400",
   },
   {
-    icon: Megaphone,
-    title: "Digital Marketing",
+    icon: Shield,
+    title: "Cyber Security",
     description:
-      "Performance-driven digital campaigns across social, search, and paid channels to attract and convert customers.",
-    color: "from-rose-500/20 to-rose-600/20",
-    iconColor: "text-rose-400",
+      "Comprehensive security solutions including vulnerability assessments, data protection, network security, and compliance management to safeguard your digital assets.",
+    color: "from-red-500/20 to-red-600/20",
+    iconColor: "text-red-400",
   },
 ];
 
@@ -205,7 +203,7 @@ function About() {
               About Us
             </span>
             <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-navy-900 tracking-tight leading-tight">
-              Your Technology & Transportation Partner in Oakville
+              Your Technology & Transportation Partner
             </h2>
             <p className="mt-6 text-gray-600 text-lg leading-relaxed">
               Starting in 2018 from our home office in Oakville, we began by helping

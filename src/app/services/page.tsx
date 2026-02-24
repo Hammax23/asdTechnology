@@ -12,6 +12,7 @@ import {
   Clock,
   Settings,
   Wifi,
+  Shield,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -78,31 +79,31 @@ const techServices = [
   },
   {
     icon: Search,
-    title: "SEO Services",
+    title: "SEO & Digital Marketing",
     description:
-      "Search engine optimization that improves visibility, drives organic traffic, and grows your online presence.",
+      "Complete digital marketing solutions including SEO optimization, social media campaigns, and performance-driven strategies to boost your online presence and convert customers.",
     features: [
       "On‑page & technical SEO",
-      "Keyword & content strategy",
-      "Local SEO optimization",
-      "SEO audits & reporting",
+      "Social media marketing",
+      "Paid ads (Google & Meta)",
+      "Analytics & conversion tracking",
     ],
     color: "from-green-500/20 to-green-600/20",
     iconColor: "text-green-400",
   },
   {
-    icon: Megaphone,
-    title: "Digital Marketing",
+    icon: Shield,
+    title: "Cyber Security",
     description:
-      "Performance‑driven campaigns across search, social, and paid channels that turn visitors into customers.",
+      "Comprehensive security solutions including vulnerability assessments, data protection, network security, and compliance management to safeguard your digital assets.",
     features: [
-      "Social media marketing",
-      "Paid ads (Google & Meta)",
-      "Content & email campaigns",
-      "Analytics & conversion tracking",
+      "Security assessments",
+      "Data protection & encryption",
+      "Network security monitoring",
+      "Compliance management",
     ],
-    color: "from-rose-500/20 to-rose-600/20",
-    iconColor: "text-rose-400",
+    color: "from-red-500/20 to-red-600/20",
+    iconColor: "text-red-400",
   },
 ];
 
