@@ -20,6 +20,7 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import QuoteForm from "@/components/QuoteForm";
+import NeuralNetworkAnimation from "@/components/NeuralNetworkAnimation";
 
 /* ───────────────────── Hero ───────────────────── */
 function Hero() {
@@ -43,6 +44,9 @@ function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950/80 to-navy-900/90" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-blue-500/6 rounded-full blur-[120px]" />
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-600/5 rounded-full blur-[100px]" />
+        
+        {/* AI Neural Network Animation */}
+        <NeuralNetworkAnimation />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 pb-12 sm:pb-16 w-full">
