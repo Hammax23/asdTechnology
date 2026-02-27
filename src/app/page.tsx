@@ -21,6 +21,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import QuoteForm from "@/components/QuoteForm";
 import NeuralNetworkAnimation from "@/components/NeuralNetworkAnimation";
+import TypewriterText from "@/components/TypewriterText";
 
 /* ───────────────────── Hero ───────────────────── */
 function Hero() {
@@ -60,13 +61,19 @@ function Hero() {
               </span>
             </div>
 
-            <h1 className="animate-fade-in-up text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-white leading-tight mb-5 sm:mb-6 tracking-tight">
-              Driving Innovation,
-              <br />
-              <span className="text-gradient">Delivering Excellence</span>
+            <h1 className="animate-fade-in-up text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold leading-tight mb-5 sm:mb-6 tracking-tight min-h-[80px] sm:min-h-[100px] md:min-h-[120px]">
+              <TypewriterText 
+                phrases={[
+                  "Driving Innovation, |Delivering Excellence",
+                  "Transform Your |Business with AI"
+                ]}
+                typingSpeed={60}
+                deletingSpeed={40}
+                pauseDuration={2500}
+              />
             </h1>
 
-            <p className="animate-fade-in-up-delay max-w-xl text-base sm:text-lg text-blue-100/50 mb-8 sm:mb-10 leading-relaxed mx-auto lg:mx-0">
+            <p className="animate-fade-in-up-delay max-w-xl text-base sm:text-lg text-white/80 mb-8 sm:mb-10 leading-relaxed mx-auto lg:mx-0">
               From cutting-edge software development to SEO, digital marketing,
               and cloud solutions, ASD Technology ensures every digital
               experience is seamless, secure, and world-class.
