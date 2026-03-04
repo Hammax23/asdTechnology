@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 const values = [
   { icon: Target, title: "Mission", description: "We help GTA businesses succeed online while providing reliable transportation when they need to meet clients, attend conferences, or catch flights." },
-  { icon: Eye, title: "Vision", description: "To become the go-to partner for small and medium businesses in Oakville and surrounding areas who want both digital growth and dependable travel solutions." },
+  { icon: Eye, title: "Vision", description: "To become the go-to partner for small and medium businesses in the Greater Toronto Area who want both digital growth and dependable travel solutions." },
   { icon: Heart, title: "Values", description: "We believe in honest pricing, showing up on time, delivering what we promise, and treating every client like they're our most important one." },
 ];
 
@@ -76,13 +76,13 @@ export default function AboutPage() {
                 From Web Development to Executive Transportation
               </h2>
               <p className="mt-6 text-gray-600 text-lg leading-relaxed">
-                ASD Technology started in 2018 when our founder needed a better 
+                ASD Technology started in 2009 when our founder needed a better 
                 way to help local Oakville businesses get online. After building 
                 websites for several clients, we noticed they often needed reliable 
                 transportation for meetings and airport runs.
               </p>
               <p className="mt-4 text-gray-600 text-lg leading-relaxed">
-                By 2021, word-of-mouth referrals led us to add executive chauffeur 
+                Word-of-mouth referrals led us to add executive chauffeur 
                 services. Our clients appreciated having one trusted company handle 
                 both their digital presence and professional transportation needs 
                 across the Greater Toronto Area.
@@ -90,7 +90,7 @@ export default function AboutPage() {
 
               <div className="mt-8 space-y-4">
                 {[
-                  "Founded in 2018 in Oakville, Ontario",
+                  "Founded in 2009 in Greater Toronto Area",
                   "Serving 80+ clients across the GTA",
                   "Same-day response for urgent requests",
                   "4.8/5 average rating on Google Reviews",
@@ -106,7 +106,7 @@ export default function AboutPage() {
             {/* Stats Grid */}
             <div className="grid grid-cols-2 gap-4 sm:gap-6">
               {[
-                { icon: Briefcase, value: "6+", label: "Years in Business", color: "from-blue-500/10 to-blue-600/10" },
+                { icon: Briefcase, value: "16+", label: "Years in Business", color: "from-blue-500/10 to-blue-600/10" },
                 { icon: Users, value: "80+", label: "Active Clients", color: "from-purple-500/10 to-purple-600/10" },
                 { icon: Globe, value: "12", label: "Team Members", color: "from-cyan-500/10 to-cyan-600/10" },
                 { icon: Star, value: "4.8", label: "Google Rating", color: "from-gold-400/10 to-gold-600/10" },

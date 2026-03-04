@@ -187,7 +187,7 @@ export default function QuoteForm() {
                 <option value="ui-ux">UI/UX Design for Web</option>
                 <option value="seo">SEO Services</option>
                 <option value="digital-marketing">Digital Marketing</option>
-                <option value="it-consulting">IT Consulting</option>
+                <option value="ai">AI</option>
                 <option value="cloud">Cloud Solutions</option>
                 <option value="cybersecurity">Cybersecurity</option>
                 <option value="tech-support">Technical Support</option>
