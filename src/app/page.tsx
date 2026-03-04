@@ -217,20 +217,21 @@ function About() {
               Your Technology & Transportation Partner
             </h2>
             <p className="mt-6 text-gray-600 text-lg leading-relaxed">
-              Starting in 2018 from our home office in Oakville, we began by helping
-              local businesses build better websites. What started as a two-person 
-              web development team has grown into a full-service digital agency.
+              ASD Technology started in 2009 when our founder needed a better way
+              to help local Oakville businesses get online. After building websites for
+              several clients, we noticed they often needed reliable transportation for
+              meetings and airport runs.
             </p>
             <p className="mt-4 text-gray-600 text-lg leading-relaxed">
-              In 2021, we expanded into executive transportation services after
-              several clients needed reliable airport transfers for their business
-              meetings. Today, we&#39;re proud to serve both technology and transportation
-              needs across the Greater Toronto Area.
+              Word-of-mouth referrals led us to add executive chauffeur services. Our
+              clients appreciated having one trusted company handle both their
+              digital presence and professional transportation needs across the
+              Greater Toronto Area.
             </p>
 
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
               {[
-                { icon: Award, label: "Since 2018", sub: "Established Business" },
+                { icon: Award, label: "Since 2009", sub: "Established Business" },
                 { icon: Users, label: "Local Team", sub: "GTA Based" },
                 { icon: Clock, label: "Same Day", sub: "Quick Response" },
                 { icon: Star, label: "4.8/5", sub: "Google Reviews" },
